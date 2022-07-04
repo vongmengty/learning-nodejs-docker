@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  app:
+    container_name: nodejs
+    depends_on:
+      - mongodb
+    build: .
+    restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - "49160:8080"
+    stdin_open: true
+    tty: true
+ 
+  mongodb:
+    container_name: mongodb_v5.0.2
+    image: mongo:5.0.2
+    restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - "27017:27017"
+    volumes:
+      - db:/data/db
+volumes:
+  db:
