@@ -1,5 +1,8 @@
 # build image of docker
 
+## rebuild docker container
+$ docker-compose up --build -d
+
 ex: docker build . -t <your username>/node-web-app
 docker build . -t mengty/node-web-app
 
