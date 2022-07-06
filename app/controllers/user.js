@@ -1,6 +1,11 @@
 const userService = require('../services/user');
+const { generateAccessToken } = require('../middleware/jwt');
 
 module.exports = {
+    generateToken: (req, res) => {
+        const token = generateAccessToken('mengty');
+        res.success({token});
+    },
     create: async (req, res) => {
         //const {name, gender, phone, email} = req.body;
         try {
